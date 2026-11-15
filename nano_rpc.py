@@ -14,7 +14,7 @@ from pypresence import Presence
 # ============================================================
 
 # Application ID z Discord Developer Portálu (aplikace "Nano").
-CLIENT_ID = "1569767990344556577"
+CLIENT_ID = "1569760843909038210"
 
 # Klíče obrázků nahraných v Developer Portálu -> Rich Presence -> Art Assets.
 LARGE_IMAGE = "nano"        # velký obrázek (logo nano)
@@ -24,8 +24,8 @@ SMALL_IMAGE = "tux"         # malý obrázek (Tux / Linux) – můžeš nechat p
 SMALL_TEXT = "Linux"
 
 # Text, který se zobrazí pod názvem.
-DETAILS = "BodyCam"
-STATE = "Playing BodyCam"
+DETAILS = "Editing in nano"
+STATE = "$ nano notes.txt"
 
 # Odkazy na tlačítka (max 2, URL musí začínat http:// nebo https://).
 # Pokud tlačítka nechceš, nastav BUTTONS = [].
@@ -57,7 +57,7 @@ def main():
     rpc.update(**payload)
 
     print("Rich Presence běží! Pro vypnutí stiskni Ctrl+C.")
-    print("Na Discordu by se teď mělo zobrazit: Hraje BodyCam")
+    print("Na Discordu by se teď mělo zobrazit: Hraje Nano")
 
     try:
         while True:
