@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
-# Setup pro Arch Linux (funguje i na jiných distribucích s python3).
-# Nainstaluje potřebné balíčky, vytvoří virtuální prostředí a nainstaluje pypresence.
+# Setup for Arch Linux (also works on other distros with python3).
+# Installs the required packages, creates a virtualenv and installs pypresence.
 set -e
 
-echo "[1/3] Kontroluji/instaluji potřebné balíčky..."
+echo "[1/3] Checking / installing required packages..."
 if command -v pacman >/dev/null 2>&1; then
     sudo pacman -S --needed --noconfirm git python
 else
-    echo "  (pacman nenalezen – přeskakuji instalaci balíčků, pokračuji s venv)"
+    echo "  (pacman not found – skipping package install, continuing with venv)"
 fi
 
-echo "[2/3] Vytvářím virtuální prostředí..."
+echo "[2/3] Creating virtual environment..."
 python -m venv .venv
 
-echo "[3/3] Instaluji pypresence..."
+echo "[3/3] Installing pypresence..."
 .venv/bin/pip install --upgrade pip >/dev/null
 .venv/bin/pip install -r requirements.txt
 
 echo ""
-echo "Hotovo!"
-echo "Pokud ještě nemáš vlastní Discord aplikaci, postupuj podle README.md."
-echo "Spusť to příkazem:  ./nano.sh"
+echo "Done!"
+echo "If you don't have your own Discord app yet, follow README.md."
+echo "Start it with:  ./nano.sh"

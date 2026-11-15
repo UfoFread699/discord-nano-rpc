@@ -1,8 +1,8 @@
-"""Discord Rich Presence – "Hraje Nano" (textový editor GNU nano).
+"""Discord Rich Presence – "Playing Nano" (the GNU nano text editor).
 
-Pozor: název "Nano" se bere z názvu Discord aplikace, ne z tohoto skriptu.
-Musíš tedy v Developer Portálu vytvořit DRUHOU aplikaci pojmenovanou "Nano"
-a sem vložit její Application ID (Client ID).
+Note: the "Nano" name comes from your Discord application name, not from this
+script. Create an application called "Nano" in the Developer Portal and put its
+Application ID (Client ID) below.
 """
 
 import time
@@ -10,25 +10,25 @@ import time
 from pypresence import Presence
 
 # ============================================================
-#  NASTAVENÍ – uprav si podle sebe
+#  SETTINGS – adjust to your liking
 # ============================================================
 
-# Application ID z Discord Developer Portálu (aplikace "Nano").
+# Application ID from the Discord Developer Portal (the "Nano" app).
 CLIENT_ID = "1569760843909038210"
 
-# Klíče obrázků nahraných v Developer Portálu -> Rich Presence -> Art Assets.
-LARGE_IMAGE = "nano"        # velký obrázek (logo nano)
+# Asset keys uploaded at Developer Portal -> Rich Presence -> Art Assets.
+LARGE_IMAGE = "nano"        # large image (nano logo)
 LARGE_TEXT = "GNU nano"
 
-SMALL_IMAGE = "tux"         # malý obrázek (Tux / Linux) – můžeš nechat prázdné ""
+SMALL_IMAGE = "tux"         # small image (Tux / Linux) – set to "" to disable
 SMALL_TEXT = "Linux"
 
-# Text, který se zobrazí pod názvem.
+# Text shown below the name.
 DETAILS = "Editing in nano"
 STATE = "$ nano notes.txt"
 
-# Odkazy na tlačítka (max 2, URL musí začínat http:// nebo https://).
-# Pokud tlačítka nechceš, nastav BUTTONS = [].
+# Buttons (max 2, URL must start with http:// or https://).
+# Set BUTTONS = [] to disable buttons.
 BUTTONS = [
     {"label": "GNU nano", "url": "https://www.nano-editor.org/"},
 ]
@@ -42,7 +42,7 @@ def main():
     payload = {
         "details": DETAILS,
         "state": STATE,
-        "start": time.time(),          # od kdy běží
+        "start": time.time(),          # how long it has been running
         "large_image": LARGE_IMAGE,
         "large_text": LARGE_TEXT,
     }
@@ -56,14 +56,14 @@ def main():
 
     rpc.update(**payload)
 
-    print("Rich Presence běží! Pro vypnutí stiskni Ctrl+C.")
-    print("Na Discordu by se teď mělo zobrazit: Hraje Nano")
+    print("Rich Presence is running! Press Ctrl+C to stop.")
+    print("Discord should now show: Playing Nano")
 
     try:
         while True:
             time.sleep(15)
     except KeyboardInterrupt:
-        print("\nKonec, zavírám připojení...")
+        print("\nStopping, closing connection...")
         rpc.close()
 
 

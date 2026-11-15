@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Spustí Discord Rich Presence "Nano".
+# Start the "Nano" Discord Rich Presence.
 set -e
 cd "$(dirname "$0")"
 exec .venv/bin/python nano_rpc.py
